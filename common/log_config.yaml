@@ -1,0 +1,32 @@
+version: 1
+formatters:
+  simple:
+    format: "%(asctime)s %(name)s: %(message)s"
+  extended:
+    # format: "%(asctime)-20s :: %(levelname)-8s :: [%(process)d]%(processName)s :: %(threadName)s[%(thread)d] :: %(pathname)s :: %(lineno)d :: %(message)s"
+    format: "%(asctime)-20s :: %(levelname)-8s :: %(pathname)s :: %(lineno)d :: %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file_handler:
+    class: logging.handlers.FileHandler
+    level: INFO
+    filename: C:\Logs\CBMSBack.log
+    formatter: extended
+    encoding: utf-8
+loggers:
+  prod:
+    handlers: [file_handler]
+    level: INFO
+  dev:
+    handlers: [console, file_handler]
+    level: DEBUG
+root:
+  level: NOTSET
+  handlers: [console]
+  propogate: yes
+
+
