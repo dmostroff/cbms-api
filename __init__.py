@@ -1,9 +1,6 @@
 import os
-from pathlib import Path
-import sys
-from flask import Flask, url_for
-from flask_cors import CORS
 
+# from pathlib import Path
 
 import create_app as ca
 import common.settings as settings
